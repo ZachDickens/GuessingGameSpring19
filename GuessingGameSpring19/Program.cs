@@ -10,6 +10,8 @@ namespace GuessingGameSpring19
             
             string userGuess = Console.ReadLine();
 
+            int numberOfGuesses = 3;
+
             if (userGuess.Equals("0"))
             {
                 Console.WriteLine("=====INSTRUCTIONS=====");
@@ -26,16 +28,25 @@ namespace GuessingGameSpring19
             {
                 // then they win
                 Console.WriteLine("You win!");
+                System.Environment.Exit(1);
+            }
+            else if (userGuess.Equals("-1"))
+            {
+                System.Environment.Exit(1);
             }
             else
             {
-                // otherwise they lose
-                Console.WriteLine("You lost.");
-                // user guesses 0 
-                
-                               
-
+                numberOfGuesses = numberOfGuesses - 1;
+                userGuess = Console.ReadLine();
+                Console.Write("I am sorry.");
+                Console.WriteLine("That is incorrect. Please guess again.");
+            
             }
+            Console.WriteLine("Please guess a number between 1 and 10, or enter 0 for help.");
+            userGuess = Console.ReadLine();
+
+
         }
+
     }
 }
